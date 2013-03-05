@@ -1,0 +1,144 @@
+12,12
+13,13
+15,15
+1er,1st
+2004,2004
+2012,2012
+6,6
+a,has
+accepter,to take
+aisés,comfortable
+ambassade,embassy
+amples,loose
+angeles,?
+ans,years
+application,application
+atlanta,atlanta
+aucune,no
+aurpsè,near (spelling error?)
+autre,other
+aux,to the
+base,base
+be,?
+belgique,belgium
+belgium,belgium
+bonne,good
+bénéficier,to receive
+ce,this
+ces,those
+cette,that
+comme,as
+comparution,appearance
+consulaires,consulars
+consulats,consulates
+consulter,to consult
+contiennent,contains
+contre,against
+contrôles,checks
+courrier,mail
+d',with
+dans,in
+date,date
+de,with
+demandes,applications
+demandeur,enquirer
+depuis,since
+des,some
+digitales,digital
+diplomatie,diplomacy
+documents,documentation
+doivent,must
+du,from
+dès,as soon as
+délivrance,release
+délivrés,delivered
+détenteurs,sharers
+effectuent,make
+elle,she
+empreintes,prints
+en,in
+enfants,children
+est,is
+et,and
+etats,states
+européen,european
+européenne,european
+foi,faith
+fraude,fraud
+frontière,boarder
+futur,future
+février,february
+généraux,generous
+honneur,honour
+identification,identification
+identité,identity
+imposée,required
+incidence,reprecussion
+informations,news
+informer,to tell
+inscrit,registered
+inscrits,registered persons
+introduction,introduction
+introduites,introduced
+l',the
+la,the
+le,the
+les,the
+leur,their
+liens,affiliation
+los,?
+lutte,struggle
+matière,matter
+membres,members
+mesure,measure
+mise,putting
+même,same
+mêmes,same
+n',not
+new,?
+non,no
+noter,to write down
+nouvelle,new
+obligatoire,compulsory
+octobre,october
+ou,or
+par,by
+partir,to leave
+passeport,passport
+passeports,passports
+passé,past
+permettra,allow SB to do STH
+personnelle,personal
+photo,photo
+place,place
+plus,more
+postal,mail
+pour,for
+prise,taking
+procédure,procedure
+procédures,procedures
+procédé,behavior
+précise,exactly
+présenter,put SB in for VTR
+qu',that
+que,that
+registres,register
+règlement,regulation
+s',self
+se,self
+section,section
+signature,signature
+suivants,following
+sur,on
+tout,all
+traitement,treatment
+un,a
+une,a
+union,union
+veuillez,hope for
+vous,you
+washington,washington
+york,york
+à,at
+âge,age
+également,equally
