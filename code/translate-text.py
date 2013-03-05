@@ -37,7 +37,11 @@ class DirectTranslation:
 	def posTagging(self):
 		self.targetPosTags = []
 		for line in self.target:
-			self.targetPosTags.append(pos_tag(line))
+			posLine = []
+			for word in line:
+				posLine.extend(pos_tag([word]))
+			self.targetPosTags.append(posLine)
+			print posLine
 
 	def rearrangeWords(self):
 		for source, target in zip(self.source, self.targetPosTags):
