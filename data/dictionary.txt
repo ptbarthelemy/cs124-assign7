@@ -10,16 +10,16 @@ accepter,to take
 aisés,comfortable
 ambassade,embassy
 amples,loose
-angeles,?
+angeles,angeles
 ans,years
 application,application
 atlanta,atlanta
 aucune,no
-aurpsè,near (spelling error?)
+aurpsè,near
 autre,other
 aux,to the
 base,base
-be,?
+be,be
 belgique,belgium
 belgium,belgium
 bonne,good
@@ -32,14 +32,14 @@ comparution,appearance
 consulaires,consulars
 consulats,consulates
 consulter,to consult
-contiennent,contains
+contiennent,contain
 contre,against
 contrôles,checks
 courrier,mail
-d',with
+d',of
 dans,in
 date,date
-de,with
+de,of
 demandes,applications
 demandeur,enquirer
 depuis,since
@@ -86,7 +86,7 @@ le,the
 les,the
 leur,their
 liens,affiliation
-los,?
+los,los
 lutte,struggle
 matière,matter
 membres,members
@@ -95,7 +95,7 @@ mise,putting
 même,same
 mêmes,same
 n',not
-new,?
+new,new
 non,no
 noter,to write down
 nouvelle,new
@@ -107,7 +107,7 @@ partir,to leave
 passeport,passport
 passeports,passports
 passé,past
-permettra,allow SB to do STH
+permettra,will allow
 personnelle,personal
 photo,photo
 place,place
@@ -119,7 +119,7 @@ procédure,procedure
 procédures,procedures
 procédé,behavior
 précise,exactly
-présenter,put SB in for VTR
+présenter,put
 qu',that
 que,that
 registres,register

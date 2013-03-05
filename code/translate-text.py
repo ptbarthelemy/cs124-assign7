@@ -1,4 +1,7 @@
-import re
+from re import findall
+from nltk import pos_tag
+import pickle
+import os.path
 
 """
 Read the document and translate the text word-by-word.
@@ -12,20 +15,73 @@ class DirectTranslation:
 		self.dictionary = {}
 		f = open(filename)
 		for line in f.readlines():
-			wf, we = re.findall("[^\n,]+", line)
+			wf, we = findall("[^\n,]+", line)
 			self.dictionary[wf] = we
 		f.close()
 
-	def translateText(self, filename):
+	def readSource(self, filename):
+		self.source = []
 		f = open(filename)
 		for lineF in f.readlines():
-			lineE = []
-			for word in re.findall(r"[^\., '\n]+'?", lineF.lower()):
-				lineE.append(self.dictionary[word])
-			print "ORIGINAL   :", lineF.strip().lower()
-			print "TRANSLATION:", ' '.join(lineE)
+			self.source.append(findall(r"[^\., '\n]+'?", lineF.lower()))
 		f.close()
 
+	def translateText(self):
+		self.target = []
+		for lineF in self.source:
+			lineE = []
+			for word in lineF:
+				lineE.extend(self.dictionary[word].split())
+			self.target.append(lineE)
+
+	def posTagging(self):
+		self.targetPosTags = []
+		for line in self.target:
+			self.targetPosTags.append(pos_tag(line))
+
+	def rearrangeWords(self):
+		for source, target in zip(self.source, self.targetPosTags):
+			print "SOURCE  :", ' '.join(source)
+			print "TARGET1 :", ' '.join(list(a for a,b in target))
+			for i in range(len(target)):
+
+				# RULE 1: NN JJ ->> JJ NN
+				if i < len(target) - 1:
+					if target[i][1] == 'NN' and target[i+1][1] == 'JJ':
+						print "  switching", target[i][0], target[i+1][0]
+						temp = target[i]
+						target[i] = target[i+1]
+						target[i+1] = temp
+
+				# RULE 2: NN1 NN2 ->> NN2 NN1 (french probably got it wrong)
+				if i < len(target) - 1:
+					if target[i][1] == 'NN' and target[i+1][1] == 'NN':
+						print "  switching", target[i][0], target[i+1][0]
+						temp = target[i]
+						target[i] = target[i+1]
+						target[i+1] = temp
+
+				# RULE 2: NN1 NN2 ->> NN2 NN1 (french probably got it wrong)
+				if i < len(target) - 1:
+					if target[i][1] == 'NN' and target[i+1][1] == 'VBG':
+						print "  switching", target[i][0], target[i+1][0]
+						temp = target[i]
+						target[i] = target[i+1]
+						target[i+1] = temp
+
+			print "TARGET2 :", ' '.join(list(a for a,b in target)), "\n"
+
 if __name__ == "__main__":
-	model = DirectTranslation("../data/dictionary.txt")
-	model.translateText("../data/source.txt")
+	modelname = "model.tmp"
+	if os.path.isfile(modelname):
+		print "Loading preexisting model..."
+		model = pickle.load(open(modelname, "rb"))
+	else:
+		print "Creating new model..."
+		model = DirectTranslation("../data/dictionary.txt")
+		model.readSource("../data/source.txt")
+		model.translateText()
+		model.posTagging()
+		pickle.dump(model, open(modelname, "wb"))
+
+	model.rearrangeWords()
