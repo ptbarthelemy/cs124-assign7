@@ -73,6 +73,15 @@ class DirectTranslation:
 						target[i] = target[i+1]
 						target[i+1] = temp
 
+				# RULE X:
+				if i < len(target) - 2:
+					if target[i][0] == 'fraud' and target[i+1][0] == 'of' and target[i+2][0] == 'identity':
+						print "  fixing", target[i][0], target[i+1][0], target[i+2][0]
+						target.pop(i+1)
+						temp = target.pop(i+1)
+						target.insert(i, temp)
+
+
 			print "TARGET2 :", ' '.join(list(a for a,b in target)), "\n"
 
 if __name__ == "__main__":
