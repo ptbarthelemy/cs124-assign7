@@ -57,7 +57,7 @@ class DirectTranslation:
 						target[i] = target[i+1]
 						target[i+1] = temp
 
-				# RULE 2: NN1 NN2 ->> NN2 NN1 (french probably got it wrong)
+				# RULE 2: NN1 NN2 ->> NN2 NN1   ### THIS COMMENT WILL BE CLEANED UP(french probably got it wrong)
 				if i < len(target) - 1:
 					if target[i][1] == 'NN' and target[i+1][1] == 'NN':
 						print "  switching", target[i][0], target[i+1][0]
@@ -65,7 +65,7 @@ class DirectTranslation:
 						target[i] = target[i+1]
 						target[i+1] = temp
 
-				# RULE 2: NN1 NN2 ->> NN2 NN1 (french probably got it wrong)
+				# RULE 3: NN VBG ->> VBG NN  ### THIS COMMENT WILL BE CLEANED UP(french probably got it wrong)
 				if i < len(target) - 1:
 					if target[i][1] == 'NN' and target[i+1][1] == 'VBG':
 						print "  switching", target[i][0], target[i+1][0]
@@ -73,9 +73,9 @@ class DirectTranslation:
 						target[i] = target[i+1]
 						target[i+1] = temp
 
-				# RULE X:
+				# RULE 4: NN1 of NN2 -> NN2 NN1; from the French "NN1 d'/de NN2", which describes compound nouns in French
 				if i < len(target) - 2:
-					if target[i][0] == 'fraud' and target[i+1][0] == 'of' and target[i+2][0] == 'identity':
+					if target[i][1] == 'NN' and target[i+1][0] == 'of' and target[i+2][1] == 'NN':
 						print "  fixing", target[i][0], target[i+1][0], target[i+2][0]
 						target.pop(i+1)
 						temp = target.pop(i+1)

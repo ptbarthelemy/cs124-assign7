@@ -6,7 +6,7 @@ French is a Romance language. Some of its grammatical features are shared with o
 
 a) Two grammatical genders (masculin, féminin)
 b) Tenses formed from auxiliaries
-c) The use of pronominal verbs. In general, pronominal verbs in French are either reflexive, reciprocal or idiomatic. Reflexive and reciprocal verbs were easier to handle than
+c) The use of pronominal verbs. In general, pronominal verbs in French are either reflexive, reciprocal or idiomatic. As the term suggests, idiomatic pronominal verbs are quite idiosyncratic and the pronoun may modify the sense of the verb in unexpected ways.
 
 More quirky grammatical features include:
 
