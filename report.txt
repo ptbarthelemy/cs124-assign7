@@ -1,0 +1,47 @@
+####1. THE F-LANGUAGE AND GENERAL OBSERVATIONS####
+
+We have chosen the canonical F-language in machine translation, French. We chose French mainly because the both of us know the its grammatical structure reasonably well, and therefore it is easier for us to implement rules after we do word-for-word translation.
+
+French is a Romance language. Some of its grammatical features are shared with other Romance languages:
+
+a) Two grammatical genders (masculin, féminin)
+b) Tenses formed from auxiliaries
+c) The use of pronominal verbs. In general, pronominal verbs in French are either reflexive, reciprocal or idiomatic. Reflexive and reciprocal verbs were easier to handle than
+
+More quirky grammatical features include:
+
+a) Declarative word order is SVO, except that pronominal objects precede verbs ('Tu parles français'; 'tu le parles')
+b) Verb-subject inversion to denote question parking ('parles-tu français?'), although this is often not required ('tu parles français')
+c) Existence of simple past, principally used in poetic diction
+d) Split negation, typically of the form 'ne (VERB) pas'. Other forms of negation include: 'ne (VERB) point', 'ne (VERB) plus', 'ne (VERB)
+
+Some vocabulary features:
+a) The majority of French words come from Vulgar Latin. The Roman conquest in England, as well as the French influence over the English court, explain the large overlap of its vocabulary with that of English.
+
+Some phonological features:
+a) The key feature to note is elision; this is otherwise unproblematic except that certain forms of elision are carried over into the orthography, for example, 'j'ai' <- 'je ai', 'l'homme qu'il a vu' <- 'le homme que il a vu'. 
+
+We proceed to discuss the impact that these features have on the translation:
+
+PREPROCESSING:
+Elision meant that we needed to be more sensitive to tokenization, so we couldn't simply remove every single punctuation mark. However, splitting on punctuation marks could lead to confusion too. Take, for example, 'je l'ai vu'. In our word-by-word translation model, there is no straightforward way of distinguishing between 'l'' as an article ('the'), and 'l'' as a pronoun ('he' or 'she' or 'it). Thankfully our training set did not have very many of these ambiguities; it would be less easy in this deterministic setup to deal with such problems.
+
+TRANSLATING:
+We were thankful that most of these French words had a pretty straightforward counterpart in English, due to the cultural (and geographic!) proximity of English to French. It would have been far harder translating a different language, say, Indonesian, in which many words would escape straightforward translation because many words would be dependent on some basis of cultural understanding. This meant that we didn't have to worry too much about fidelity.
+
+We were also glad that French and English are hot languages, so we do not have to deal with inferring agents, as they are explicitly marked. However, a problem that comes up as a result is that we often have to deal with pronouns, and there is no straightforward way of dealing with this, without further context: more specifically, in English, one refers to any entity (physical or not) as 'it', as long as this entity is not a person. In French, however, any entity is gendered, and this affects the pronoun that is used. For example, in English one says 'This is my passport. It is blue.' In French, one says 'C'est mon passeport. Il est bleu.'
+
+Another thing that proves problematic is the existence of pronominal verbs. It is not immediately obvious how to deal with them, since the pronoun 'se' is typically translated as 'himself', and in some cases it makes sense (particularly for reflexive verbs). However, for other cases it is far less obvious what we should do with the pronoun. For example, it would take a more sophisticated language model to tell that 'il se peut' ought to be translated as 'it is possible' or 'it appears that' or 'it could be', rather than 'he itself can'.
+
+####2. THE TEST DATA ####
+L'ambassade de Belgique à Washington a l'honneur de vous informer de la mise en place d'une nouvelle mesure européenne en matière de délivrance de passeports.
+Depuis le 15 février 2012, les passeports délivrés par cette Ambassade contiennent les empreintes digitales de leur demandeur et ce dès l'âge de 12 ans.
+Depuis cette date, la comparution personnelle de tout demandeur de passeports inscrits ou non dans les registres consulaires de cette Ambassade est obligatoire. Cette Ambassade n'est plus en mesure d'accepter les demandes introduites par courrier postal.
+Veuillez également noter qu'à partir de l'âge de 6 ans, les enfants doivent se présenter à l'Ambassade pour la prise de photo et la signature du passeport.
+La même procédure est d'application aurpsè des Consulats Généraux d'Atlanta, Los Angeles et New York depuis le 1er octobre 2012.
+Pour de plus amples informations, veuillez consulter les liens suivants Passeport.belgium.be et Diplomatie.belgium.be
+La section passeport précise que ce procédé d'identification n'a aucune autre incidence sur l'introduction, le traitement, et la délivrance des passeports.
+Ces procédures s'effectuent comme par le passé, et sur base des mêmes documents.
+Cette nouvelle mesure est imposée par un règlement Européen du 13.12.2004 et s'inscrit dans la lutte contre la fraude d'identité.
+Dans le futur, elle permettra aux détenteurs de passeports d'Etats membres de l'Union Européenne de bonne foi, de bénéficier de contrôles de frontière plus aisés.
+
