@@ -57,13 +57,13 @@ class DirectTranslation:
 						target[i] = target[i+1]
 						target[i+1] = temp
 
-				# RULE 2: NN1 NN2 ->> NN2 NN1   ### THIS COMMENT WILL BE CLEANED UP(french probably got it wrong)
-				if i < len(target) - 1:
-					if target[i][1] == 'NN' and target[i+1][1] == 'NN':
-						print "  switching", target[i][0], target[i+1][0]
-						temp = target[i]
-						target[i] = target[i+1]
-						target[i+1] = temp
+#				# RULE 2: NN1 NN2 ->> NN2 NN1   ### THIS COMMENT WILL BE CLEANED UP(french probably got it wrong)
+#				if i < len(target) - 1:
+#					if target[i][1] == 'NN' and target[i+1][1] == 'NN':
+#						print "  switching", target[i][0], target[i+1][0]
+#						temp = target[i]
+#						target[i] = target[i+1]
+#						target[i+1] = temp
 
 				# RULE 3: NN VBG ->> VBG NN  ### THIS COMMENT WILL BE CLEANED UP(french probably got it wrong)
 				if i < len(target) - 1:
