@@ -71,14 +71,14 @@ French represents dates as "le 12ème janvier", i.e. they append a definite arti
 VI: DELETING REPEATED WORDS
 Sometimes languages will translate word-for-word extremely badly, because noun phrases in one language can be translated into a single noun in another language. For example, "courrier" translates as "mail" and "postal" translates as "mail", but "courrier postal" should translate as "mail", not "mail mail". If we see two same words in a row we should be able to delete one of them without much loss of fidelity, and probably gain some fluency.
 
-RULE 7: "NOT" VB "NO" -> VB "NO" [DELETE THE "NOT"]
+VII: "NOT" VB "NO" -> VB "NO" [DELETE THE "NOT"]
 This has to do with French having a split negation, so verbs are negated with as "ne" + VB + PARTICLE, with the particle denoting the richness of negation. So whenever we see a verb surrounded by negation, we need to make a choice. In this case, it comes from French "ne...aucune" which means "no".
 
-RULE 8: NOT" VB "MORE" -> VB "NO LONGER" [DELETE THE "NOT", "MORE", INSERT "NO LONGER"]
+VIII: NOT" VB "MORE" -> VB "NO LONGER" [DELETE THE "NOT", "MORE", INSERT "NO LONGER"]
 Refer to rule 7 for split negation. In this case, the split negation arose from French "ne... plus" which means "no longer".
 
-RULE 9: "OF TO" --> "TO" [DELETE "OF"]
+IX: "OF TO" --> "TO" [DELETE "OF"]
 French often requires the preposition "DE" in front of an infinitive in order to be grammatical, e.g. 'permettre ... de bénéficier'. This does not hold in English, one would never say "allow ... of to benefit", one would simply say "allow to benefit".
 
-RULE 10: "AT TO LEAVE OF" -> "FROM"
+X: "AT TO LEAVE OF" -> "FROM"
 In our translation model, "à partir de" is translated as "AT" + "TO LEAVE" + "OF", this is idiomatic in French but hardly comprehensible in English. One is better off translating this as "FROM".
