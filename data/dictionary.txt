@@ -65,7 +65,7 @@ européen,european
 européenne,european
 foi,faith
 fraude,fraud
-frontière,boarder
+frontière,border
 futur,future
 février,february
 généraux,generous
@@ -73,7 +73,7 @@ honneur,honour
 identification,identification
 identité,identity
 imposée,required
-incidence,reprecussion
+incidence,repercussion
 informations,news
 informer,to tell
 inscrit,registered
