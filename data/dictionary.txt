@@ -68,7 +68,7 @@ fraude,fraud
 frontière,border
 futur,future
 février,february
-généraux,generous
+généraux,general
 honneur,honour
 identification,identification
 identité,identity
