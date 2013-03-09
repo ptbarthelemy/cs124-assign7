@@ -9,13 +9,14 @@ Read the document and translate the text word-by-word.
 
 MONTHS = ['january','february','march','april','may','june','july','august','september','october','november','december']
 
-def isDate(day, month):
+def getDate(day, month, year):
 	try:
-		day = int(day) # if day is not an integer value, this will fail
-		assert day <= 31 and day > 0 and month in MONTHS
-		return True
+		day2 = findall("(\d+)(st|nd|rd|th)?", day)[0][0]
+		day2 = int(day2) # if day is not an integer value, this will fail
+		assert day2 <= 31 and day2 > 0 and month in MONTHS
+		return [(month, "NN"), (day, "CD"), (",", ","), (year, "CD")]
 	except:
-		return False
+		return None
 
 
 class DirectTranslation:
@@ -96,12 +97,15 @@ class DirectTranslation:
 
 				# RULE 5: "THE" (cardinal number) (month) --> (cardinal number) (month) 
 				# SO SOMETHING LIKE "THE 30TH DECEMBER" SHOULD BECOME "30TH DECEMBER ONLY"
-				if i < len(target) - 2:
-					if target[i][0] == 'the' and isDate(target[i+1][0], target[i+2][0]):
-						print "  removing", target[i][0]
-						target.pop(i)
-						print "  switching", target[i][0], target[i+1][0]
-						target.insert(i,target.pop(i+1))
+				if i < len(target) - 3:
+					date = getDate(target[i+1][0], target[i+2][0], target[i+3][0])
+					if target[i][0] == 'the' and date is not None:
+						for j in range(4):
+							print "  removing", target[i][0]
+							target.pop(i)
+						print "  inserting", ' '.join(a for a,b in date)
+						for j in range(4):
+							target.insert(i, date.pop(-1))
 
 				# RULE 6: DELETE TWO WORDS IN A ROW THAT ARE THE SAME
 				# SO "MAIL MAIL" --> "MAIL" OR "BYE BYE" --> "BYE"
@@ -165,7 +169,7 @@ class DirectTranslation:
 
 if __name__ == "__main__":
 	modelname = "model.tmp"
-	if os.path.isfile(modelname) and False:
+	if os.path.isfile(modelname):
 		print "Loading preexisting model..."
 		model = pickle.load(open(modelname, "rb"))
 	else:
